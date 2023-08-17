@@ -1,0 +1,32 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<form method="post" action="/viewtdata" enctype="multipart/form-data">
+    
+<div class="row m-5 ">
+    <% record.map((val)=>{
+        const{name,description,price,image}=val;
+        %>
+       
+            <div class="card ms-4 me-5 my-5 p-2 bg-light border-3" style="width: 18rem;">
+                <img src="<%=image%>" class="card-img-top" width="100%" height="200px" style="object-fit: cover;" alt="..." >
+                <div class="card-body">
+                  <h4 class="card-title"><%=name%></h4>
+                  <p class="card-text"><%=description%></p>
+                  <h5 class="card-text pb-2">Movie Price :  <%=price%></h5>
+                  <button class="btn btn-dark">
+                    <a href="/editdata?id=<%= val.id %>" class="text-decoration-none text-light text-uppercase">edit</a>
+                </button>
+                <button class="btn btn-dark">
+                    <a href="/deletedata?id=<%= val.id %>" class="text-decoration-none text-light text-uppercase">delete</a>
+                </button>
+                </div>
+              </div>
+       
+   
+      <% }) %> </div>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+crossorigin="anonymous"></script>
